@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "kanban-test-cc541": {
+      "hosting": {
+        "fireship-angular": [
+          "kanban-test-cc541"
+        ]
+      }
+    }
+  }
+}
