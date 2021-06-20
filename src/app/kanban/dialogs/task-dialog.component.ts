@@ -20,9 +20,7 @@ import { BoardService } from '../board.service';
         [(ngModel)]="data.task.label"
       >
         <mat-button-toggle *ngFor="let opt of labelOptions" [value]="opt">
-          <mat-icon [ngClass]="opt">{{
-            opt === 'grey' ? 'check_circle' : 'lens'
-          }}</mat-icon>
+          <mat-icon [ngClass]="opt">{{ checkSelectedColor(opt) }}</mat-icon>
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
@@ -55,5 +53,13 @@ export class TaskDialogComponent {
   handleTaskDelete() {
     this.ps.removeTask(this.data.boardId, this.data.task);
     this.dialogRef.close();
+  }
+
+  checkSelectedColor(color: string) {
+    if (this.data.isNew) {
+      return 'lens';
+    } else {
+      return color == this.data.task.label ? 'check_circle' : 'lens';
+    }
   }
 }
